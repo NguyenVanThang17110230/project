@@ -1,0 +1,34 @@
+{
+  "devFiles": [
+    "static/development/dll/dll_bd631718905a04750597.js",
+    "static/development/dll/dll_bd631718905a04750597.js.map"
+  ],
+  "pages": {
+    "/MessagePage": [
+      "static/runtime/webpack.js",
+      "static/chunks/styles.chunk.css",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
+    "/ProfilePage": [
+      "static/runtime/webpack.js",
+      "static/chunks/styles.chunk.css",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack.js",
+      "static/chunks/styles.chunk.css",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/chunks/static/development/pages/_app.js.chunk.css",
+      "static/runtime/main.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ]
+  }
+}

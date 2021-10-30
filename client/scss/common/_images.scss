@@ -1,0 +1,73 @@
+.main-header {
+  img {
+    width: 2.1rem;
+    height: auto;
+  }
+}
+
+.avatar {
+  min-width: 34px;
+  height: 34px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  .navbar & {
+    max-width: 34px;
+  }
+
+  &__editor {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    margin: auto;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    .fas {
+      font-size: 1.8rem;
+      position: absolute;
+      top: 50%;
+      margin-top: -0.9rem;
+      z-index: 1;
+      visibility: hidden;
+
+      @include transition(all 0.2s linear);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(#000, 0.3);
+      visibility: hidden;
+
+      @include transition(all 0.2s linear);
+    }
+
+    &:hover {
+      &::after,
+      .fas {
+        visibility: visible;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .user-panel & {
+    max-width: 34px;
+    padding-left: 0 !important;
+    margin-left: 0.8rem;
+
+    &.image {
+      display: flex;
+    }
+  }
+
+  img {
+    display: inline-block;
+    width: 100%;
+  }
+}

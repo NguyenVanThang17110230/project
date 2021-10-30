@@ -1,0 +1,113 @@
+div.action {
+  align-items: center;
+
+  &__edit {
+    margin-right: 8px;
+    color: #007bff;
+  }
+
+  &__delele {
+    color: #dc3545;
+  }
+}
+
+.btn {
+  letter-spacing: 1px;
+  font-weight: 500px;
+
+  &--social {
+    color: $white;
+  }
+
+  &--google {
+    background: #df4930;
+  }
+
+  &--primary {
+    background-color: $blue-background !important;
+    color: $white;
+
+    &:hover {
+      opacity: 0.88;
+      color: $white;
+    }
+
+    &:focus {
+      color: $white !important;
+    }
+  }
+
+  &--light-green {
+    background-color: #5dd2c120 !important;
+    color: $primary !important;
+  }
+
+  &--light-yellow {
+    background-color: #fbe8b720 !important;
+    color: $yellow !important;
+  }
+
+  &--light-red {
+    background-color: #fab3b820 !important;
+    color: $red !important;
+  }
+
+  &--yellow {
+    background-color: $light-yellow !important;
+    color: $white !important;
+  }
+
+  &--red {
+    background-color: $light-red !important;
+    color: $white !important;
+  }
+}
+
+.btn-header_container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0 3px 20px 0 $dark-shadow;
+  border-radius: 25px;
+
+  .btn-signin {
+    border-radius: unset;
+    background: $blue-background;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    &.non-action {
+      background: $dark-background-1;
+    }
+  }
+
+  .btn-signup {
+    border-radius: unset;
+    background: $dark-violet;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+    &.action {
+      background: $blue-background;
+    }
+  }
+}
+
+.btn-confirm {
+  background: $blue-background;
+  padding: 10px 35px;
+  color: #fff;
+  margin-left: -17rem;
+
+  &:hover {
+    //background-color: $light-green;
+    opacity: 0.88;
+    color: white;
+  }
+}
+
+.btn-confirm-right {
+  // width: 400px;
+  margin-bottom: -1rem;
+  // margin-left: 1rem;
+}

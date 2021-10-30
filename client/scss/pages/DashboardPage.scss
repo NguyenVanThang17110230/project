@@ -1,0 +1,174 @@
+@mixin circle-rank {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: rgba(93, 210, 193, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 50%;
+    height: 50%;
+  }
+  @include media-breakpoint-between(md, lg) {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    img {
+      width: 40%;
+      height: 40%;
+    }
+  }
+}
+
+.table-scroll {
+  display: block;
+  empty-cells: show;
+
+  thead {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  th {
+    font-weight: 500;
+  }
+
+  tr {
+    width: 100%;
+    display: flex;
+  }
+
+  tbody {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+
+    tr:nth-child(2n) {
+      background-color: #e9ecef;
+    }
+  }
+
+  td,
+  th {
+    flex-basis: 100%;
+    flex-grow: 2;
+    display: block;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .small-first-col td:first-child,
+  .small-first-col th:first-child {
+    flex-basis: 20%;
+    flex-grow: 1;
+  }
+
+  .body-half-screen {
+    max-height: 530px;
+  }
+
+  .body-quarter-screen {
+    max-height: 370px;
+  }
+
+  .small-col {
+    flex-basis: 10%;
+  }
+}
+
+.list-donut-chart {
+  .th-title-char {
+    @include media-breakpoint-between(md, lg) {
+      font-size: 12px;
+    }
+  }
+}
+
+.view-rank-db {
+  .image-rank {
+    max-width: 80px;
+    max-height: 100px;
+    min-width: 45px;
+    min-height: 55px;
+  }
+  h3{
+    font-weight: 400;
+  }
+
+  @include media-breakpoint-between(md, lg) {
+    .text-muted {
+      font-size: 12px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 10px;
+  }
+  @include media-breakpoint-down(xl) {
+    h3 {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    h3 {
+      font-size: 22px;
+    }
+  }
+}
+.view-rank-up-db,
+.view-sold-year-db,
+.view-sold-total-db {
+  .th-square-2 {
+    @include circle-rank;
+  }
+  @include media-breakpoint-between(md, lg) {
+    .th-size-2 {
+      font-size: 18px !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 20px;
+  }
+}
+.bar-char-db {
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+  }
+}
+.donut-chart-db {
+  @include media-breakpoint-down(sm) {
+    padding-left: 0;
+  }
+}
+.card-mid{
+  @include media-breakpoint-down(sm) {
+    padding: 20px 0;
+  }
+}
+.card-first{
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+  }
+}
+.card-last{
+  @include media-breakpoint-down(sm) {
+    padding-left: 0;
+  }
+}
+.mid-ver2{
+  @include media-breakpoint-down(sm) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

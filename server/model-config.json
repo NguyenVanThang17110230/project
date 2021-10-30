@@ -1,0 +1,138 @@
+{
+  "_meta": {
+    "sources": ["loopback/common/models", "loopback/server/models", "./models"],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "./mixins",
+      "../node_modules/loopback-ds-timestamp-mixin"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": true
+  },
+  "user": {
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "UserCredential": {
+    "dataSource": "db",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "UserIdentity": {
+    "dataSource": "db",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "Configuration": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "UserCommission": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TransactionCommission": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Transaction": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TransactionActivity": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TransactionInvitation": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TransactionParty": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TransactionDetail": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Invitation": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Document": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DocumentAction": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Event": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Notification": {
+    "dataSource": "db",
+    "public": true
+  },
+  "News": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "db",
+    "public": true
+  },
+  "UserInvitation": {
+    "dataSource": "db",
+    "public": true
+  }
+}

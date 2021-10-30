@@ -1,0 +1,131 @@
+.modal-dialog {
+  max-width: 600px;
+}
+
+#userOnly {
+  @media screen and (max-width: 992px) {
+    #topbar {
+      z-index: 10000;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    .title-task {
+      font-size: 32px;
+      font-weight: 500;
+      margin-left: 0;
+    }
+  }
+  @include media-breakpoint-down(md){
+    .nav-link {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.notification_new {
+  position: absolute;
+  background: $themecolor;
+  width: 25px;
+  height: 25px;
+  line-height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  left: 100%;
+  top: -2px;
+}
+
+.notificationBell_new {
+  position: absolute;
+  top: -30%;
+  left: 30%;
+  font-size: 12px;
+  background-color: #fa3e3e;
+  border-radius: 50%;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-task {
+  font-size: 32px;
+  font-weight: 500;
+
+  .description-paragraph {
+    font-size: 14px;
+    color: #808292;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+}
+
+.bt {
+  margin-bottom: 1%;
+
+  &--calendar {
+    padding-left: 0;
+  }
+
+  &--contact {
+    margin-left: 0;
+  }
+}
+#left-sidebar {
+  &.left-sidebar{
+    @include media-breakpoint-down(md) {
+      left: 0;
+      overflow: hidden;
+    }
+  }
+  #sideBar-menu {
+    @include media-breakpoint-down(md) {
+      transform: translateY(65px);
+    }
+    @include media-breakpoint-down(sm) {
+      transform: translateY(-10px);
+    }
+  }
+  @include media-breakpoint-between(md, lg) {
+  }
+  @include media-breakpoint-down(md) {
+    width: 0;
+  }
+  transition: 0.8s;
+}
+.animation-display {
+  width: 100% !important;
+}
+
+.page-title {
+  background-color: #fff;
+  padding: 0rem 3rem;
+  box-shadow: 1px 0px 20px rgba(0,0,0,0.08);
+  margin: 0;
+  @include media-breakpoint-down(sm) {
+    padding: 0 1rem;
+    h2{
+      font-size: 30px !important;
+    }
+  }
+  @include media-breakpoint-between(sm, md) {
+    padding: 0 1rem;
+  }
+
+}
+
+.table-current{
+  @include media-breakpoint-down(sm) {
+    table{
+      font-size: 11px;
+      overflow-x: scroll;
+    }
+    h4{
+      font-size: 20px !important;
+    }   
+  }
+}

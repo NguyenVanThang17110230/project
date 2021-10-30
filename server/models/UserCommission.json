@@ -1,0 +1,31 @@
+{
+  "name": "UserCommission",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "cashType": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "number",
+      "required": true
+    },
+    "ratio": {
+      "type": "number"
+    }
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  }
+}

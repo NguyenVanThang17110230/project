@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "shippedProposals": true
+      }
+    ],
+    [
+      "next/babel",
+      {
+        "transform-runtime": {
+          "useESModules": false
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-flow-strip-types"
+  ]
+}

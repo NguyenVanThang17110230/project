@@ -1,0 +1,20 @@
+{
+  "name": "News",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "title": "string",
+    "content": "string",
+    "status": "boolean",
+    "newsType": "string",
+    "publicDate": "date"
+  },
+  "relations": {
+    "creator": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "creatorId"
+    }
+  }
+}

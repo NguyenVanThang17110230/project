@@ -1,0 +1,88 @@
+{
+  "name": "Message",
+  "properties": {
+    "content": "string",
+    "type": "string",
+    "createdAt": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "methods": {
+    "createNew": {
+      "description": "Upload file",
+      "http": {
+        "verb": "post",
+        "path": "/create-new"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "arg": "document",
+        "type": "object"
+      }
+    },
+    "prototype.download": {
+      "description": "Download file from s3",
+      "http": {
+        "verb": "get",
+        "path": "/download"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "type": "file"
+      }
+    }
+  },
+  "relations": {
+    "sender": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "senderId"
+    },
+    "recipient": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "recipientId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY",
+      "property": "download"
+    }
+  ]
+}

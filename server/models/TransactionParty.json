@@ -1,0 +1,38 @@
+{
+  "name": "TransactionParty",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "role": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "phoneNumber": "string",
+    "access": "string",
+    "company": "string",
+    "licenseNumber": "string"
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "foreignKey": "partyId"
+    },
+    "assignedActions": {
+      "type": "hasMany",
+      "model": "DocumentAction",
+      "foreignKey": "assignedPartyId"
+    }
+  }
+}

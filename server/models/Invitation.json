@@ -1,0 +1,23 @@
+{
+  "name": "Invitation",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "joined": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "referrerId"
+    }
+  }
+}

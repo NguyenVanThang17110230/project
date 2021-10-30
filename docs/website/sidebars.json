@@ -1,0 +1,16 @@
+{
+  "docs": {
+    "The basics": [
+      "the-basics/getting-started",
+      "the-basics/cloud-storage",
+      "the-basics/social-auth",
+      "the-basics/deployment",
+      "the-basics/trouble-shooting"
+    ],
+    "Technical design": [
+      "tech-design/architecture",
+      "tech-design/test-automation"
+    ],
+    "Specification": ["spec/overview"]
+  }
+}

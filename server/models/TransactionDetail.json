@@ -1,0 +1,32 @@
+{
+  "name": "TransactionDetail",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "yearBuilt": "string",
+    "bedrooms": "string",
+    "squareFootage": "string",
+    "schoolDistrict": "string",
+    "type": "string",
+    "bathrooms": "string",
+    "lotSize": "string",
+    "country": "string",
+    "streetNumber": "string",
+    "streetName": "string",
+    "unitNumber": "string",
+    "city": "string",
+    "state": "string",
+    "postalCode": "string",
+    "county": "string",
+    "mlsNumber": "string",
+    "taxId": "string"
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "TransactionInvitation",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": "string",
+    "access": "string"
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    }
+  }
+}

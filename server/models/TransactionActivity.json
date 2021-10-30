@@ -1,0 +1,31 @@
+{
+  "name": "TransactionActivity",
+  "properties": {
+    "actorId": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "data": "object",
+    "role": "string",
+    "createdAt": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "party": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "partyId"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.login-form,
+.forgot-password-form,
+.sign-up-form,
+.reset-new-password-form,
+.admin-setup-form,
+.admin-first-account-form,
+.admin-login-form {
+  width: 100%;
+  max-width: 495px;
+  padding-right: 4rem;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+}
+
+.form-login-right {
+  // margin-top: -13rem;
+  padding: 0;
+}
+
+.form__standalone {
+  margin: 7% auto;
+  width: 26rem;
+  font-size: 16px;
+}

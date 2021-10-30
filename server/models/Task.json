@@ -1,0 +1,36 @@
+{
+  "name": "Task",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "taskName": "string",
+    "status": "string",
+    "isActive": "boolean",
+    "deadline": "date",
+    "transactionName": "string"
+  },
+
+  "relations": {
+    "creator": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "creatorUserId"
+    },
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "sharedUsers": {
+      "type": "referencesMany",
+      "model": "user",
+      "foreignKey": "sharedUserIds"
+    },
+    "documentAction": {
+      "type": "belongsTo",
+      "model": "DocumentAction",
+      "foreignKey": "documentActionId"
+    }
+  }
+}

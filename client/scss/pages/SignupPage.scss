@@ -1,0 +1,124 @@
+// @import '../vendors/elite/variable';
+
+// .signup-page {
+//   margin: auto;
+
+//   form {
+//     input {
+//       background-color: transparent;
+//       color: $primary !important;
+
+//       &:focus {
+//         background-color: transparent;
+//         color: $primary !important;
+//       }
+//     }
+
+//     input:-webkit-autofill,
+//     input:-webkit-autofill:hover,
+//     input:-webkit-autofill:focus,
+//     textarea:-webkit-autofill,
+//     textarea:-webkit-autofill:hover,
+//     textarea:-webkit-autofill:focus,
+//     select:-webkit-autofill,
+//     select:-webkit-autofill:hover,
+//     select:-webkit-autofill:focus {
+//       -webkit-text-fill-color: $primary;
+//       transition: background-color 5000s ease-in-out 0s;
+//       color: $primary;
+//     }
+
+//     label {
+//       color: $primary !important;
+//     }
+//   }
+
+//   .signup-page_left {
+//     background-color: $blue-background;
+//     text-align: center;
+
+//     img {
+//       width: 100%;
+//       margin-top: 10%;
+//     }
+//   }
+
+//   .signup-page_right {
+//     background-color: $dark-background;
+//     padding-top: 5%;
+
+//     .form-material-placeholder {
+//       input {
+//         color: $blue-text-input;
+//       }
+
+//       input::placeholder {
+//         color: $blue-text-input;
+//       }
+//     }
+
+//     .signup-page-icon {
+//       // text-align: center;
+//     }
+
+//     .signup-page_text {
+//       position: relative;
+//     }
+//   }
+// }
+
+@import '../vendors/elite/variable';
+
+.signup-page {
+  margin: auto;
+  height: 100vh;
+
+  form {
+    input {
+      background-color: transparent;
+      color: $primary !important;
+
+      &:focus {
+        background-color: transparent;
+        color: $primary !important;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-text-fill-color: $primary;
+      transition: background-color 5000s ease-in-out 0s;
+      color: $primary !important;
+    }
+
+    label {
+      color: $primary !important;
+    }
+  }
+
+  .signup-page_left {
+    background-color: $blue-background;
+    text-align: center;
+
+    img {
+      width: 100%;
+      margin-top: 10%;
+    }
+  }
+
+  .signup-page_right {
+    background-color: $dark-blu;
+    padding-top: 5%;
+
+    .signup-page_text {
+      position: relative;
+    }
+  }
+}

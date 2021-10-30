@@ -1,0 +1,178 @@
+@import '../vendors/elite/variable';
+// @import '../responsive/loginPage.scss';
+.login-page {
+  margin: auto;
+  height: 100vh;
+
+  form {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      transition: background-color 5000s ease-in-out 0s;
+      color: $primary !important;
+      font-size: 12px;
+    }
+
+    label {
+      color: $light-black;
+    }
+  }
+
+  .login-page_left {
+    .link-welcome{
+      h3{
+        @include media-breakpoint-down(md) {
+          font-size: 1rem;
+        }
+      }
+      .paragraph-login{
+        @include media-breakpoint-down(md) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    @include media-breakpoint-between(xs,sm) {
+      display: none !important;
+    }
+    background-color: #1b1d2a;
+    img {
+      width: 100%;
+      margin-top: 5%;
+    }
+
+    .img-left {
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 14%;
+      height: 32px;
+    }
+  }
+
+  .h3_left_login {
+    color: white;
+    width: 500px;
+  }
+
+  .paragraph-login {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 5rem;
+  }
+
+  h4 {
+    width: 500px;
+  }
+
+  .login-page_right {
+    background-color: $white-login;
+
+    &__container {
+      width: 40%;
+
+      @include media-breakpoint-down(md) {
+        width: 80%;
+      }
+      @include media-breakpoint-between(md,lg) {
+        width: 65%;
+      }
+    }
+
+    .login-page_text {
+      position: relative;
+    }
+
+    .img-right {
+      width: 100px;
+      margin-bottom: 1rem;
+      height: 32px;
+    }
+
+    .my-4 {
+      text-align: right;
+    }
+  }
+
+  .text-login {
+    color: $dark-blu-login;
+    font-weight: 500;
+    font-size: 28px;
+    @include media-breakpoint-down(lg) {
+      font-size: 20px;
+    }
+  }
+
+  .remember-input {
+    opacity: 0.5;
+  }
+
+  .input-right {
+    // align-content: center;
+    margin-bottom: -5rem;
+  }
+
+  .paragraph-left {
+    .font-dmsans {
+      font-family: $headings-font-family;
+    }
+
+    .check-box-login {
+      opacity: 0.5;
+    }
+
+    .text-forgot-password {
+      font-weight: bolder;
+      font-size: 12px;
+    }
+
+    .text-forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    .form-login {
+      margin-top: -33px;
+    }
+
+    .input-login {
+      font-size: 13.5px;
+      border-radius: 0;
+      border: hidden;
+    }
+
+    .checkbox-login {
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+    }
+
+    .checkbox-log {
+      height: 17px;
+      width: 17px;
+      font-size: 13px;
+    }
+
+    .remember-me {
+      font-size: 12px;
+    }
+  }
+
+  .text-bold-forget-pass {
+    font-weight: 500;
+  }
+
+  .text-forgot-pass {
+    margin-top: -1rem;
+  }
+
+  .success-massage {
+    border: 1px solid $success-green;
+    color: $success-green;
+    background-color: $white;
+    padding: 1rem 2rem;
+  }
+}

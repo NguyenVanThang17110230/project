@@ -1,0 +1,142 @@
+/*******************/
+/*To do widgets*/
+/*******************/
+
+.todo-list {
+    .list-tasks{
+        border-bottom: 1px solid #f6f7f9; 
+        :hover .feature-tasks{
+            display: block; 
+            opacity: 1.5;
+        }
+    }
+    li {
+
+        border: 0px;
+        padding: 20px 0px 15px 0px;
+        .custom-checkbox {
+            width: 100%;
+            label {
+                font-weight: 400;
+                
+                width:100%;
+                span:first-child{
+                    width:75%;
+                    display: inline-block;
+                    line-height: 25px;
+                }
+                
+            }
+        }
+        &:last-child {
+
+        }
+        .assignedto {
+            padding: 0px 0 0 30px;
+            margin: 0px;
+            li {
+                list-style: none;
+                padding: 0px;
+                display: inline-block;
+                border: 0px;
+                margin-right: 2px;
+                img {
+                    width: 30px;
+                    border-radius: 100%;
+                }
+            }
+        }
+        .item-date {
+            padding-left: 30px;
+            font-size: 12px;
+            margin-top: 5px;
+            display: inline-block;
+            color: #456aeb;
+           
+        }
+        
+        .feature-tasks {
+            text-align: right;
+            margin-top: -2rem;
+            margin-right: 3rem;
+            display: none;
+        }
+    }
+
+   
+}
+
+.custom-button:hover + .feature-tasks{
+    display: block;
+}
+
+.list-task .task-done span {
+    text-decoration: line-through;
+}
+.btn-cover:link,
+.btn-cover:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn-cover:hover {
+    padding: 1rem;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cover:active {
+    transform: translateY(-0px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn-cover::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-cover-white::after {
+    background-color: #fff;
+}
+
+.btn-cover:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-cover-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+

@@ -1,0 +1,24 @@
+{
+  "name": "UserInvitation",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

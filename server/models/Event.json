@@ -1,0 +1,28 @@
+{
+  "name": "Event",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "title": "string",
+    "description": "string",
+    "time": "date"
+  },
+  "relations": {
+    "creator": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "creatorUserId"
+    },
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "sharedUsers": {
+      "type": "referencesMany",
+      "model": "user",
+      "foreignKey": "sharedUserIds"
+    }
+  }
+}

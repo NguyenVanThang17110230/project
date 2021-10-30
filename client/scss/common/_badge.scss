@@ -1,0 +1,11 @@
+.app-badge {
+  @extend .badge;
+
+  padding: 2px 8px !important;
+  font-weight: 700 !important;
+
+  &--light {
+    background-color: $light;
+    color: $grey;
+  }
+}

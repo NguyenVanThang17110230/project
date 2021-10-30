@@ -1,0 +1,30 @@
+{
+  "name": "Notification",
+  "properties": {
+    "type": "string",
+    "data": "object",
+    "isRead": "boolean"
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "methods": {},
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "creator": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "creatorId"
+    },
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    }
+  },
+  "acls": []
+}

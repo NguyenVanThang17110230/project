@@ -1,0 +1,92 @@
+{
+  "name": "DocumentAction",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "action": "string",
+    "status": "string",
+    "data": "object",
+    "envelopeId": "string"
+  },
+  "methods": {
+    "prototype.downloadSignDocument": {
+      "description": "Download sign document from s3",
+      "http": {
+        "verb": "get",
+        "path": "/download"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "type": "file"
+      }
+    },
+    "hook": {
+      "description": "Listen event from Docusign",
+      "http": {
+        "verb": "post",
+        "path": "/hook"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true
+      }
+    }
+  },
+  "relations": {
+    "document": {
+      "type": "belongsTo",
+      "model": "Document",
+      "foreignKey": "documentId"
+    },
+    "assignedParty": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "assignedPartyId"
+    },
+    "creator": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "creatorId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY",
+      "property": "downloadSignDocument"
+    }
+  ]
+}

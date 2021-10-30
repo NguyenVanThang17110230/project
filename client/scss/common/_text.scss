@@ -1,0 +1,27 @@
+.app-text--accent {
+  color: $primary;
+}
+
+.u-clickable {
+  cursor: pointer;
+}
+
+.text {
+  &--blue {
+    color: $blue-text-forgot-password;
+  }
+
+  &--primary {
+    color: $primary !important;
+  }
+
+  &--gray {
+    color: $gray !important;
+  }
+}
+
+a {
+  &.text--blue:hover {
+    color: $blue-text-forgot-password;
+  }
+}

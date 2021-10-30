@@ -1,0 +1,10 @@
+{
+  "./components/social-auth": {
+    "baseUrl": "${BASE_URL}",
+    "defaultPassword": "${DEFAULT_PASSWORD}",
+    "google": {
+      "clientID": "${GOOGLE_CLIENT_ID}",
+      "clientSecret": "${GOOGLE_CLIENT_SECRET}"
+    }
+  }
+}

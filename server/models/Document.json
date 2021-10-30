@@ -1,0 +1,182 @@
+{
+  "name": "Document",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "title": "string",
+    "uri": "string",
+    "role": "string",
+    "linkDocument": "string"
+  },
+  "methods": {
+    "prototype.sign": {
+      "description": "Sign",
+      "http": {
+        "verb": "post",
+        "path": "/sign"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "arg": "document",
+        "type": "object"
+      }
+    },
+    "prototype.uploadToDocusign": {
+      "description": "Upload to docusign",
+      "http": {
+        "verb": "post",
+        "path": "/upload-to-docusign"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "arg": "document",
+        "type": "object"
+      }
+    },
+    "createNew": {
+      "description": "Upload file",
+      "http": {
+        "verb": "post",
+        "path": "/create-new"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "arg": "document",
+        "type": "object"
+      }
+    },
+    "prototype.download": {
+      "description": "Download file from s3",
+      "http": {
+        "verb": "get",
+        "path": "/download"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "type": "file"
+      }
+    },
+    "prototype.downloadEnvelop": {
+      "description": "Download envelop document from s3",
+      "http": {
+        "verb": "get",
+        "path": "/download-envelope"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "type": "file"
+      }
+    }
+  },
+  "relations": {
+    "creator": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "creatorId"
+    },
+    "party": {
+      "type": "belongsTo",
+      "model": "TransactionParty",
+      "foreignKey": "partyId"
+    },
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "actions": {
+      "type": "hasMany",
+      "model": "DocumentAction",
+      "foreignKey": "documentId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY",
+      "property": "download"
+    }
+  ]
+}

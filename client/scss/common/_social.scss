@@ -1,0 +1,14 @@
+$social: (1, $blue-background) (2, #3b5997) (3, #d35759);
+
+@each $stt, $background-color in $social {
+  .social-#{$stt} {
+    margin: 0 20px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    width: 35px;
+    height: 35px;
+    line-height: 32px;
+    border-color: $background-color;
+    color: #fff;
+  }
+}

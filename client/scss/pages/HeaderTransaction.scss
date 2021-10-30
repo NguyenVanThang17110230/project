@@ -1,0 +1,85 @@
+#bt-new {
+  position: absolute;
+  right: 28%;
+  top: -80%;
+  width: 200px;
+  padding: 0 40px;
+  background: #5dd2c1;
+  color: #fff;
+  border: 1px solid transparent;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(93, 210, 193, 0.88);
+  }
+}
+
+#gr-state {
+  position: absolute;
+  bottom: -1px;
+  left: 13.5%;
+  cursor: pointer;
+  display: flex;
+
+  .box-tran {
+    padding: 10px 0;
+
+    .gr-icon {
+      padding: 10px 0;
+      margin-right: 30px;
+      color: rgba(24, 23, 23, 0.918);
+      font-size: 1.1em;
+      width: 40px;
+      height: 50px;
+
+      i {
+        color: #5dd2c1;
+        margin-right: 8px;
+        font-size: 1.3em;
+      }
+    }
+
+    .activeT {
+      border-bottom: 2px solid #5dd2c1;
+      color: #5dd2c1;
+    }
+  }
+}
+// .page-tab{
+//   margin-bottom: -1px;
+//   padding-left: 15%;
+//   .page-tab-menu{
+//       margin-bottom: -1px;
+//       .page-icon{
+//           background-image: url('https://uploads-ssl.webflow.com/5fd97ed8cd0cf9c4c8e747de/5fdbda8249ce293f7daceaac_arrows.png');
+//           background-position: 0% 50%;
+//           background-size: 22px;
+//           background-repeat: no-repeat;
+//           display: inline-block;
+//           margin-right: 30px;
+//           padding: 12px 5px 12px 30px;
+//           font-weight: 500;
+//           text-decoration: none;
+//           cursor: pointer;
+//           font-size: 14px;
+//           &:nth-child(2){
+//               background-image: url('https://uploads-ssl.webflow.com/5fd97ed8cd0cf9c4c8e747de/5fdbda824a85b431b3a5c494_checked.png');
+//           }
+//           &:nth-child(3){
+//               background-image: url('https://uploads-ssl.webflow.com/5fd97ed8cd0cf9c4c8e747de/5fdbda8221b85b51e4174df1_inbox.png');
+//           }
+//       }
+//       .current{
+//           border-bottom-style: solid;
+//           border-bottom-width: 2px;
+//           background-color: transparent;
+//           opacity: 1;
+//           color: #5dd2c1;
+//       }
+//   }
+// }

@@ -1,0 +1,243 @@
+{
+  "name": "user",
+  "base": "User",
+  "options": {
+    "mongodb": {
+      "collection": "User"
+    }
+  },
+  "emailVerificationRequired": false,
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "firstName": "string",
+    "lastName": "string",
+    "avatar": "string",
+    "coverImage": "string",
+    "dateOfBirth": "string",
+    "gender": "boolean",
+    "company": "string",
+    "phone": "string",
+    "location": "string",
+    "bio": "String",
+    "preferredLanguage": {
+      "type": "string",
+      "default": "en"
+    },
+    "isInactive": {
+      "type": "boolean",
+      "default": false
+    },
+    "usingDefaultPassword": {
+      "type": "boolean"
+    },
+    "cash": "number",
+    "rank": "string",
+    "statusNotification": "boolean"
+  },
+  "validations": [],
+  "relations": {
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "through": "RoleMapping",
+      "foreignKey": "principalId",
+      "keyThrough": "roleId",
+      "scope": {
+        "where": {
+          "principalType": "USER"
+        }
+      }
+    },
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "UserIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "UserCredential",
+      "foreignKey": "userId"
+    },
+    "joinedTransactions": {
+      "type": "hasMany",
+      "model": "Transaction",
+      "through": "TransactionParty",
+      "foreignKey": "userId",
+      "keyThrough": "transactionId"
+    }
+  },
+  "methods": {
+    "prototype.getMyMessagingParties": {
+      "description": "Users the same transactions",
+      "http": {
+        "verb": "get",
+        "path": "/my-messaging-parties"
+      },
+      "returns": {
+        "type": "object",
+        "root": true
+      },
+      "prototype.download": {
+        "description": "Download file from s3",
+        "http": {
+          "verb": "get",
+          "path": "/download"
+        },
+        "accepts": [
+          {
+            "arg": "req",
+            "type": "object",
+            "http": {
+              "source": "req"
+            }
+          },
+          {
+            "arg": "res",
+            "type": "object",
+            "http": {
+              "source": "res"
+            }
+          }
+        ],
+        "return": {
+          "root": true,
+          "type": "file"
+        }
+      }
+    },
+    "prototype.updateAvatar": {
+      "description": "Update avatar",
+      "http": {
+        "verb": "patch",
+        "path": "/update-avatar"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "root": true
+      }
+    },
+    "prototype.uploadCoverImage": {
+      "description": "Update cover image",
+      "http": {
+        "verb": "patch",
+        "path": "/upload-cover-image"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "root": true,
+        "arg": "image"
+      }
+    },
+    "prototype.getAllReferrers": {
+      "description": "Get all agent's referrers",
+      "http": {
+        "verb": "get",
+        "path": "/get-all-referrers"
+      },
+      "returns": {
+        "type": "object",
+        "root": true
+      }
+    },
+    "prototype.getTransactionInfo": {
+      "description": "Get transaction information with user's party, closing date",
+      "http": {
+        "verb": "get",
+        "path": "/get-agent-transactions"
+      },
+      "accepts": [
+        {
+          "arg": "filter",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "arg": "transactions",
+        "type": "Array"
+      }
+    },
+    "prototype.getAllUserContact": {
+      "description": "Get all user contact",
+      "http": {
+        "verb": "get",
+        "path": "/get-all-contact"
+      },
+      "returns": {
+        "arg": "user",
+        "type": "Array"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__joinedTransactions"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": [
+        "getMyMessagingParties",
+        "getAllUserContact",
+        "getAllReferrers",
+        "getTransactionInfo",
+        "updateAvatar",
+        "uploadCoverImage",
+        "count",
+        "find",
+        "findById",
+        "patchAttributes",
+        "__delete__roles",
+        "__get__joinedTransactions"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+.app-fade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+
+  &--circle {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+
+  &--blue {
+    color: $white;
+    background-color: rgba(0, 130, 254, 0.6);
+  }
+
+  &--black {
+    color: $white;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

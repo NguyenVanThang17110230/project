@@ -1,0 +1,22 @@
+version: "2"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+  app:
+    container_name: app
+    restart: always
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    env_file: .env
+    environment:
+      - DB_HOST=mongo
+      - HOST=0.0.0.0

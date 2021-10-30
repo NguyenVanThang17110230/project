@@ -1,0 +1,16 @@
+export default function (TransactionActivity) {
+  TransactionActivity.disableRemoteMethodByName('prototype.__get__party')
+  TransactionActivity.disableRemoteMethodByName('prototype.__get__transaction')
+  TransactionActivity.disableRemoteMethodByName('replaceById')
+  TransactionActivity.disableRemoteMethodByName('destroyById')
+  TransactionActivity.disableRemoteMethodByName('patchOrCreate')
+  TransactionActivity.disableRemoteMethodByName('replaceOrCreate')
+  TransactionActivity.disableRemoteMethodByName('prototype.patchAttributes')
+  TransactionActivity.disableRemoteMethodByName('findById')
+  TransactionActivity.disableRemoteMethodByName('exists')
+  TransactionActivity.disableRemoteMethodByName('createChangeStream')
+  TransactionActivity.disableRemoteMethodByName('count')
+  TransactionActivity.disableRemoteMethodByName('findOne')
+  TransactionActivity.disableRemoteMethodByName('updateAll')
+  TransactionActivity.disableRemoteMethodByName('upsertWithWhere')
+}

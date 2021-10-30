@@ -1,0 +1,49 @@
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# -----
+
+# You can specify a custom docker image from Docker Hub as your build environment.
+# circleci/node:10.15.3-browsers includes Puppeteer for e2e browser testing
+image: circleci/node:10.15.3-browsers
+
+definitions:
+  steps:
+    - step: &lint-test
+        name: Check code lint and run test
+        caches:
+          - node
+        script:
+          - npm install
+          - npm run lint
+          - npm run test:unit
+
+          # This CI already includes MongoDB & Selenium services so
+          # there's no need to self-start in-memory MongoDB and Selenium
+          - DISABLE_IN_MEMORY_MONGODB=true DISABLE_IN_MEMORY_SELENIUM=true DB_PORT=27017 npm run test:e2e
+        services:
+          - mongo
+          - selenium
+  services:
+      mongo:
+        image: mongo
+      selenium:
+        image: selenium/standalone-chrome
+
+pipelines:
+  branches:
+    '**':
+      - step: *lint-test
+
+    master:
+      - step: *lint-test
+      - step:
+          name: Deploy to staging (Heroku)
+          deployment: staging
+          script:
+            - npm install
+            - npm run build
+            - pipe: atlassian/heroku-deploy:0.1.1
+              variables:
+                HEROKU_API_KEY: $HEROKU_API_KEY
+                HEROKU_APP_NAME: $HEROKU_APP_NAME
+                ZIP_FILE: './.dist-bundle/bundle.tar.gz'
+                WAIT: 'false'

@@ -1,0 +1,111 @@
+{
+  "name": "Transaction",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "imageURL": "string",
+    "url": "string",
+    "description": "string",
+    "closingDate": "date",
+    "transactionType": {
+      "type": "string"
+    },
+    "transactionTypeStatus": {
+      "type": "string"
+    },
+    "status": "string",
+    "percentComplete": "number"
+  },
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "ownerId"
+    },
+    "parties": {
+      "type": "hasMany",
+      "model": "TransactionParty",
+      "foreignKey": "transactionId"
+    },
+    "invitations": {
+      "type": "hasMany",
+      "model": "TransactionInvitation",
+      "foreignKey": "transactionId"
+    },
+    "activities": {
+      "type": "hasMany",
+      "model": "TransactionActivity",
+      "foreignKey": "transactionId"
+    },
+    "transactionCommission": {
+      "type": "hasOne",
+      "model": "TransactionCommission",
+      "foreignKey": "transactionId"
+    }
+  },
+  "methods": {
+    "prototype.getAgentsOfTransaction": {
+      "description": "Get link agent's information in transaction",
+      "http": {
+        "verb": "get",
+        "path": "/agents"
+      },
+      "returns": {
+        "type": "array",
+        "root": true
+      }
+    },
+    "prototype.getAllTransactionByAgent": {
+      "description": "Get full party role agent",
+      "http": {
+        "verb": "get",
+        "path": "/all-agent"
+      },
+      "returns": {
+        "type": "array",
+        "root": true
+      }
+    },
+    "prototype.uploadMainImage": {
+      "description": "Upload Main Image file for Transaction",
+      "http": {
+        "verb": "patch",
+        "path": "/upload-main-image"
+      },
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "return": {
+        "root": true,
+        "arg": "image",
+        "type": "object"
+      }
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY",
+      "property": "uploadMainImage"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+.card-content-page {
+  background-color: #f6f7f9;
+
+  .card-border-top {
+    overflow-y: scroll;
+    height: 95vh;
+  }
+
+  .topbar {
+    background: #464553;
+
+    &--width {
+      width: 220px;
+    }
+
+    .navbar-header--background {
+      background: unset;
+    }
+  }
+
+  .transaction-card {
+    border-top: 10px solid $blue;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+
+    .eclipsis_file {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &.transaction-card__blue {
+      border-top: 10px solid #72c6fa;
+    }
+
+    &.transaction-card--add {
+      height: 95%;
+      cursor: pointer;
+    }
+
+    .progress-circle {
+      background-color: #ddd;
+      border-radius: 50%;
+      display: inline-block !important;
+      height: 128px;
+      position: relative;
+      width: 128px;
+      line-height: 128px;
+
+      &::after {
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+      }
+
+      &::before {
+        align-items: center;
+        background-color: grey;
+        border-radius: 50%;
+        content: attr(data-progress) '%';
+        display: flex;
+        font-size: 40px;
+        justify-content: center;
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 8px;
+        bottom: 8px;
+        border: 5px solid white;
+      }
+    }
+    // .progress-circle::before {
+    //   align-items: center;
+    //   background-color: grey;
+    //   border-radius: 50%;
+    //   content: attr(data-progress) '%';
+    //   display: flex;
+    //   font-size: 40px;
+    //   justify-content: center;
+    //   position: absolute;
+    //   left: 8px;
+    //   right: 8px;
+    //   top: 8px;
+    //   bottom: 8px;
+    //   border: 5px solid white;
+    // }
+
+    // .progress-circle::after {
+    //   border-radius: 50%;
+    //   content: '';
+    //   display: inline-block;
+    //   height: 100%;
+    //   width: 100%;
+    // }
+  }
+
+  .feature-archived {
+    text-align: end;
+  }
+
+  .box-timeline {
+    padding-top: 2rem;
+    height: 95vh;
+  }
+
+  .timeline-sidebar {
+    // border-left: 1px solid $gray-500;
+    overflow: auto;
+    height: 95vh;
+    background: $white;
+
+    .timeline-sidebar_wrapper {
+      border-left: 1px solid $gray-500;
+    }
+  }
+
+  .circle-timeline {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    right: 5px;
+    z-index: 1;
+
+    &.timeline-sidebar_circle {
+      // left: 4px;
+      left: 15px;
+      right: unset;
+    }
+  }
+
+  .transaction-add {
+    width: 128px;
+    height: 128px;
+    line-height: 128px;
+    border-radius: 50%;
+    margin: auto;
+    border: 2px solid gray;
+    font-size: 100px;
+    cursor: pointer;
+    margin-top: 35px;
+  }
+
+  h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.footer-card {
+  .footer-page {
+    border-top: 1px solid #e3e5e7;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 400;
+    color: #808292;
+  }
+
+  .footer-p1 {
+    text-align: left;
+    padding-top: 1rem;
+  }
+
+  .footer-p2 {
+    text-align: right;
+    margin-top: -1.3rem;
+  }
+  @include media-breakpoint-down(sm) {
+    .footer-p1 {
+      text-align: center;
+    }
+    .footer-p2 {
+      text-align: center;
+      margin-top: 0;
+    }
+  }
+}
+
+.text-blue {
+  color: #0083ff;
+}
+
+.button-create {
+  background-color: #f6f7f9 !important;
+}
+
+.button-create:hover {
+  background-color: #ebedf0 !important;
+}
+
+.documentButtonActive {
+  cursor: no-drop;
+}
+
+$step: 1;
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+$theme-color: #0083ff;
+$back-color: #ddd;
+
+@for $i from 1 through 100 {
+  $next-deg: 90deg + $increment * $i;
+
+  .progress-circle[data-progress='#{$i}']::after {
+    @if $i < $half {
+      background-image:
+        linear-gradient(
+          90deg,
+          $back-color 50%,
+          transparent 50%,
+          transparent
+        ),
+        linear-gradient(
+          $next-deg,
+          $theme-color 50%,
+          $back-color 50%,
+          $back-color
+        );
+    }
+
+    @else {
+      background-image:
+        linear-gradient(
+          $next-deg,
+          $theme-color 50%,
+          transparent 50%,
+          transparent
+        ),
+        linear-gradient(270deg, $theme-color 50%, $back-color 50%, $back-color);
+    }
+  }
+}
+
+
+@media screen and (max-width: 1440px) {
+  .card-content-page {
+    .box-main {
+      padding: 2rem 4rem 2rem 4rem;
+    }
+  }
+  // .title-task {
+  //   font-size: 34px;
+  //   font-weight: 500;
+  // }
+}
+
+@media screen and (max-width: 992px) {
+  .nav-item {
+    color: #0083ff;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "TransactionCommission",
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "totalCommission": {
+      "type": "number",
+      "required": true
+    },
+    "regionalSplit": {
+      "type": "number",
+      "required": true
+    },
+    "dateClose": "date"
+  },
+  "relations": {
+    "transaction": {
+      "type": "belongsTo",
+      "model": "Transaction",
+      "foreignKey": "transactionId"
+    },
+    "coordinator": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "coordinatorId"
+    }
+  }
+}

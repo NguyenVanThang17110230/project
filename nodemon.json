@@ -1,0 +1,8 @@
+{
+  "watch": [
+    ".env",
+    "server",
+    "common"
+  ],
+  "ext": "js json"
+}
